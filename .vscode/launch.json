@@ -1,0 +1,53 @@
+{
+  "configurations": [
+  {
+    "name": "Attach by Process ID",
+    "processId": "${command:PickProcess}",
+    "request": "attach",
+    "outFiles": ["${workspaceFolder}/.netlify/functions-serve/**/*.mjs"],
+    "skipFiles": [
+      "<node_internals>/**"
+    ],
+    "type": "node",
+    "sourceMaps": true,
+    "resolveSourceMapLocations": [
+      "${workspaceFolder}/src/**/*.mts",
+      "${workspaceFolder}/**",
+      "!**/node_modules/**"
+    ]
+  }
+  ]
+}
+// {
+//     "version": "0.2.0",
+//     "configurations": [
+//       {
+//         "name": "netlify dev",
+//         "type": "node",
+//         "request": "launch",
+//         "skipFiles": ["<node_internals>/**"],
+//         "outFiles": ["${workspaceFolder}/.netlify/functions-serve/**/*.js"],
+//         "program": "${workspaceFolder}/node_modules/.bin/netlify",
+//         "args": ["dev"],
+//         "runtimeArgs": ["--inspect=9229"], 
+//         "console": "integratedTerminal",
+//         "env": { "BROWSER": "none" },
+//         "serverReadyAction": {
+//           "pattern": "Server now ready on (https?://[\\w:.-]+)",
+//           "uriFormat": "%s",
+//           "action": "debugWithEdge"
+//         }
+//       },
+//       {
+//         "name": "netlify functions:serve",
+//         "type": "node",
+//         "request": "launch",
+//         "skipFiles": ["<node_internals>/**"],
+//         "outFiles": ["${workspaceFolder}/.netlify/functions-serve/**/*.js"],
+//         "program": "${workspaceFolder}/node_modules/.bin/netlify",
+//         "args": ["functions:serve"],
+//         "console": "integratedTerminal"
+//       }
+//     ]
+//   }
+  
