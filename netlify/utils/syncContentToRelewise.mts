@@ -48,14 +48,14 @@ export async function syncContentToRelewise(relewise_dataset: string, relewise_a
             'Summary': DataValueFactory.multilingual(blog.summary.map(element => ({ language: element.language, value: element.text }))),
             'Body': DataValueFactory.multilingual(blog.body.map(element => ({ language: element.language, value: element.text }))),
             'ByLine': DataValueFactory.multilingual(blog.byline.map(element => ({ language: element.language, value: element.text }))),
-            'Relevant_Products': DataValueFactory.stringCollection(blog.relevant_products.map(element =>(element.productId))),
+            'Relevant_Products': DataValueFactory.stringCollection(blog.relevant_products.map(element => (element.productId))),
             'Brand': DataValueFactory.string(blog.brand),
-            'Image': DataValueFactory.string(blog.image.replace("upload/", "upload/c_scale,h_0.5,w_0.5/q_auto:low/")),
+            'ImageUrl': DataValueFactory.string(blog.image.replace("upload/", "upload/c_scale,h_0.5,w_0.5/q_auto:low/")),
             'ImportedAt': DataValueFactory.number(date),
           }
         );
 
-        contentUpdates.push(content.build());
+      contentUpdates.push(content.build());
     } catch (error) {
       console.log(error);
     }

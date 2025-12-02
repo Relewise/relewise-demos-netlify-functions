@@ -17,10 +17,10 @@ export async function updateCategoriesWithImage(relewise_dataset: string, relewi
         })
             //Was used for an update on existing datasets - strictly not necessary anymore - but here for historical purposes.
             .displayName(category.name
-            .map(element => ({ value: element.displayName, language: element.language })))
+                .map(element => ({ value: element.displayName, language: element.language })))
             .data({
-            'Image': DataValueFactory.string(category.image),
-        });
+                'ImageUrl': DataValueFactory.string(category.image),
+            });
         categoryUpdates.push(catBuilder.build());
     });
     await integrator.batch(categoryUpdates);
