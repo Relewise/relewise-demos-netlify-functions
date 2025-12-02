@@ -47,7 +47,7 @@ export async function syncProductsToRelewise(relewise_dataset: string, relewise_
         .data(
           {
             'Description': DataValueFactory.multilingual(product.description.map(element => ({ language: element.language, value: element.text }))),
-            'Image': DataValueFactory.string(product.image.replace("upload/", "upload/c_scale,h_0.5,w_0.5/q_auto:low/")),
+            'ImageUrl': DataValueFactory.string(product.image.replace("upload/", "upload/c_scale,h_0.5,w_0.5/q_auto:low/")),
             ...product.availability.reduce((acc: any, element) => {
               acc[element.language + '_StockLevel'] = DataValueFactory.number(element.number);
 
